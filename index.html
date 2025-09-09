@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>فروشگاه اینترنتی دیجی‌کالا</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.2/Vazirmatn-font-face.css">
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+	<link rel="icon" href="footerlogo2 (1).webp" sizes="8x8" type="image/webp">
+
+
+</head>
+<body>
+<!-- Header/Navbar Section -->
+<header class="main-header">
+	<div class="header-top">
+		<div class="container-fluid">
+			<div class="col-md-8 header-top-content">
+				<!-- Right side - Logo -->
+				<div class="header-logo">
+					<img src="logo.svg" alt="دیجی‌کالا" class="logo-img">
+				</div>
+				
+				<!-- Center - Search Bar -->
+				<div class="header-search">
+					<div class="search-container">
+						<button class="search-btn" type="submit">
+							<i class="bi bi-search"></i>
+						</button>
+						<input type="text" class="search-input" placeholder="جستجو" dir="rtl">
+					</div>
+				</div>
+				
+				<!-- Left side - User Actions -->
+				<div class="header-actions">
+					<div class="action-item">
+						<button style="color: #000000;" class="notification-btn" aria-label="اعلان‌ها">
+							<i class="bi bi-bell"></i>
+						</button>
+					</div>
+					<div class="action-item">
+						<button class="login-btn">
+							<span style="color: #000000;">ورود | ثبت نام</span>
+							<i style="color: #000000;" class="bi bi-box-arrow-in-right"></i>
+						</button>
+					</div>
+					<div class="action-separator"></div>
+					<div class="action-item">
+						<button style="color: #000000;" class="cart-btn" aria-label="سبد خرید">
+							<i class="bi bi-cart3"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Bottom Navigation Bar -->
+	<div class="header-bottom">
+		<div class="container-fluid">
+			<div class="header-bottom-content">
+				<!-- Right side - Navigation Links -->
+				<nav class="header-nav">
+					<ul class="nav-list">
+						<li class="nav-item1">
+							<a href="#" class="nav-link">
+								<span>دسته بندی کالاها</span>
+								<i class="bi bi-list"></i>
+							</a>
+						</li>
+						<div class="nav-separator"></div>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">شگفت انگیزها</span>
+								<i class="bi bi-percent"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">سوپر مارکت</span>
+								<i class="bi bi-basket"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">طلای دیجیتال</span>
+								<i class="bi bi-coin"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">پرفروش ترین ها</span>
+								<i class="bi bi-graph-up"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">خرید کالای کارکرده</span>
+								<i class="bi bi-tag"></i>
+							</a>
+						</li>
+						<div class="nav-separator"></div>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">سوالی دارید؟</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<span style="color: #3e4044b9;">در دیجی‌کالا بفروشید!</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				
+				<!-- City Selector -->
+				<div class="city-selector">
+					<button class="city-btn">
+						<span>شهر خود را انتخاب کنید</span>
+						<i class="bi bi-geo-alt"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+// Header scroll behavior - hide bottom navigation when scrolling down
+document.addEventListener('DOMContentLoaded', function() {
+	let lastScrollTop = 0;
+	const headerBottom = document.querySelector('.header-bottom');
+	const scrollThreshold = 50; // Minimum scroll amount to trigger hide/show
+	
+	window.addEventListener('scroll', function() {
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		const scrollDiff = scrollTop - lastScrollTop;
+		
+		// Only trigger if scroll amount is significant
+		if (Math.abs(scrollDiff) > scrollThreshold) {
+			if (scrollDiff > 0 && scrollTop > 100) {
+				// Scrolling down - hide bottom navigation
+				headerBottom.classList.add('hidden');
+			} else if (scrollDiff < 0) {
+				// Scrolling up - show bottom navigation
+				headerBottom.classList.remove('hidden');
+			}
+			lastScrollTop = scrollTop;
+		}
+	});
+	
+	// Navigation hover effect with red underline
+	const navLinks = document.querySelectorAll('.nav-link');
+	
+	navLinks.forEach(link => {
+		link.addEventListener('mouseenter', function() {
+			// Remove active class from all links
+			navLinks.forEach(l => l.classList.remove('nav-active'));
+			// Add active class to current link
+			this.classList.add('nav-active');
+		});
+		
+		link.addEventListener('mouseleave', function() {
+			// Remove active class when mouse leaves
+			this.classList.remove('nav-active');
+		});
+	});
+});
+</script>
+
+<div class="container-fluid px-0">
+	
+	<!-- Slider Section -->
+	<div class="row">
+		<div class="col-12">
+			<div class="slider-container">
+				<div class="slider-wrapper">
+					<div class="slider-track">
+						<!-- Slide 1 -->
+						<div class="slider-slide active" data-slide="1">
+							<img src="1.webp" alt="اسلاید 1" class="slide-image">
+						</div>
+						<!-- Slide 2 -->
+						<div class="slider-slide" data-slide="2">
+							<img src="2.gif" alt="اسلاید 2" class="slide-image">
+						</div>
+						<!-- Slide 3 -->
+						<div class="slider-slide" data-slide="3">
+							<img src="3.webp" alt="اسلاید 3" class="slide-image">
+						</div>
+						<!-- Slide 4 -->
+						<div class="slider-slide" data-slide="4">
+							<img src="4.webp" alt="اسلاید 4" class="slide-image">
+						</div>
+						<!-- Slide 5 -->
+						<div class="slider-slide" data-slide="5">
+							<img src="5.webp" alt="اسلاید 5" class="slide-image">
+						</div>
+						<!-- Slide 6 -->
+						<div class="slider-slide" data-slide="6">
+							<img src="6.webp" alt="اسلاید 6" class="slide-image">
+						</div>
+						<!-- Slide 7 -->
+						<div class="slider-slide" data-slide="7">
+							<img src="7.webp" alt="اسلاید 7" class="slide-image">
+						</div>
+						<!-- Slide 8 -->
+						<div class="slider-slide" data-slide="8">
+							<img src="8.webp" alt="اسلاید 8" class="slide-image">
+						</div>
+						<!-- Slide 9 -->
+						<div class="slider-slide" data-slide="9">
+							<img src="9.webp" alt="اسلاید 9" class="slide-image">
+						</div>
+						<!-- Slide 10 -->
+						<div class="slider-slide" data-slide="10">
+							<img src="10.gif" alt="اسلاید 10" class="slide-image">
+						</div>
+						<!-- Slide 11 -->
+						<div class="slider-slide" data-slide="11">
+							<img src="11.webp" alt="اسلاید 11" class="slide-image">
+						</div>
+						<div class="slider-slide" data-slide="12">
+							<img src="12.webp" alt="اسلاید 12" class="slide-image">
+						</div>
+					</div>
+					
+					<!-- Navigation Arrows -->
+					<button class="slider-nav slider-prev" aria-label="قبلی">
+						<i class="bi bi-chevron-left"></i>
+					</button>
+					<button class="slider-nav slider-next" aria-label="بعدی">
+						<i class="bi bi-chevron-right"></i>
+					</button>
+					
+					<!-- Dot Indicators -->
+					<div class="slider-dots">
+						<button class="slider-dot active" data-slide="1" aria-label="اسلاید 1"></button>
+						<button class="slider-dot" data-slide="2" aria-label="اسلاید 2"></button>
+						<button class="slider-dot" data-slide="3" aria-label="اسلاید 3"></button>
+						<button class="slider-dot" data-slide="4" aria-label="اسلاید 4"></button>
+						<button class="slider-dot" data-slide="5" aria-label="اسلاید 5"></button>
+						<button class="slider-dot" data-slide="6" aria-label="اسلاید 6"></button>
+						<button class="slider-dot" data-slide="7" aria-label="اسلاید 7"></button>
+						<button class="slider-dot" data-slide="8" aria-label="اسلاید 8"></button>
+						<button class="slider-dot" data-slide="9" aria-label="اسلاید 9"></button>
+						<button class="slider-dot" data-slide="10" aria-label="اسلاید 10"></button>
+						<button class="slider-dot" data-slide="11" aria-label="اسلاید 11"></button>
+						<button class="slider-dot" data-slide="12" aria-label="اسلاید 12"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+
+<script>
+	// Slider functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const slides = document.querySelectorAll('.slider-slide');
+		const dots = document.querySelectorAll('.slider-dot');
+		const prevBtn = document.querySelector('.slider-prev');
+		const nextBtn = document.querySelector('.slider-next');
+		let currentSlide = 0;
+		let autoPlayInterval;
+
+		// Initialize slider
+		function initSlider() {
+			showSlide(0);
+			startAutoPlay();
+		}
+
+		// Show specific slide
+		function showSlide(index) {
+			// Remove all classes from all slides
+			slides.forEach(slide => {
+				slide.classList.remove('active', 'prev', 'next');
+			});
+			dots.forEach(dot => dot.classList.remove('active'));
+			
+			// Add active class to current slide and dot
+			slides[index].classList.add('active');
+			dots[index].classList.add('active');
+			
+			// Add prev/next classes for sliding effect
+			if (index > currentSlide) {
+				// Going forward - current slides out left, new slides in from right
+				slides[currentSlide].classList.add('prev');
+				slides[index].classList.add('next');
+			} else if (index < currentSlide) {
+				// Going backward - current slides out right, new slides in from left
+				slides[currentSlide].classList.add('next');
+				slides[index].classList.add('prev');
+			}
+			
+			currentSlide = index;
+		}
+
+		// Next slide
+		function nextSlide() {
+			const next = (currentSlide + 1) % slides.length;
+			showSlide(next);
+		}
+
+		// Previous slide
+		function prevSlide() {
+			const prev = (currentSlide - 1 + slides.length) % slides.length;
+			showSlide(prev);
+		}
+
+		// Start auto-play
+		function startAutoPlay() {
+			autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+		}
+
+		// Stop auto-play
+		function stopAutoPlay() {
+			clearInterval(autoPlayInterval);
+		}
+
+		// Event listeners
+		prevBtn.addEventListener('click', () => {
+			nextSlide();
+			stopAutoPlay();
+			startAutoPlay(); // Restart auto-play
+		});
+
+		nextBtn.addEventListener('click', () => {
+			prevSlide();
+			stopAutoPlay();
+			startAutoPlay(); // Restart auto-play
+		});
+
+		// Dot navigation
+		dots.forEach((dot, index) => {
+			dot.addEventListener('click', () => {
+				showSlide(index);
+				stopAutoPlay();
+				startAutoPlay(); // Restart auto-play
+			});
+		});
+
+		// Pause auto-play on hover
+		const sliderContainer = document.querySelector('.slider-container');
+		sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+		sliderContainer.addEventListener('mouseleave', startAutoPlay);
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft') {
+				prevSlide();
+				stopAutoPlay();
+				startAutoPlay();
+			} else if (e.key === 'ArrowRight') {
+				nextSlide();
+				stopAutoPlay();
+				startAutoPlay();
+			}
+		});
+
+		// Initialize the slider
+		initSlider();
+	});
+</script>
+
+<div class="category-menu">
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle"><img class="icon-img" src="1.png" alt="بیشتر" class="icon-img"></span>
+      <span class="label">طلای دیجیتال<br>بدون کارمزد</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #1d4ed8;"><img class="icon-img" src="2.jpg" alt=""></i></span>
+      <span class="label">تمدید<br>شانس<br>بیت کوین</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #10b981;"><img class="icon-img" src="3.png" alt=""></span>
+      <span class="label">حراج<br>پایان فصل</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #a855f7;"><img class="icon-img" src="4.png" alt=""></span>
+      <span class="label">موبایل<br>اقتصادی</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #3b82f6;"><img class="icon-img" src="5.png" alt=""></span>
+      <span class="label">جدیدترین<br>فروشندگان</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #ef4444;"><img class="icon-img" src="6.jpg" alt=""></span>
+      <span class="label">چله<br>تابستون</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #06b6d4;"><img class="icon-img" src="7.png" alt=""></span>
+      <span class="label">اشتراک<br>پلاس</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #0ea5e9;"><img class="icon-img" src="8.png" alt=""></span>
+      <span class="label">تناسب<br>اندام</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #dc2626;"><img class="icon-img" src="9.png" alt=""></span>
+      <span class="label">خرید<br>قسطی</span>
+    </a>
+  </div>
+
+  <div class="category-item">
+    <a href="#" class="category-link">
+      <span class="icon-circle" style="background-color: #f0f0f5; color: #4a5568;"><i class="bi bi-three-dots"></i></span>
+      <span class="label">بیشتر</span>
+    </a>
+  </div>
+</div>	
+
+<!-- Amazing Offers Section -->
+<div class="dk-amazing" dir="rtl">
+	<div class="dk-amazing-inner">
+		<button class="amz-nav amz-next" aria-label="بعدی"><i class="bi bi-chevron-left"></i></button>
+					<div class="amz-track" id="amzTrack">
+				<article class="amz-card amz-card3 amz-spotlight">
+					<div class="amz-spotlight-inner">
+						<img class="amz-spotlight-img" src="image.png" alt="پیشنهاد شگفت‌انگیز">
+						<div class="amz-percent" aria-hidden="true"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><text x="60" y="50" text-anchor="middle" fill="#ffffff" font-size="66" font-weight="900" font-family="Vazirmatn, system-ui, -apple-system, 'Segoe UI', Roboto, Arial" transform="translate(60 0) scale(1.2 1) translate(-60 0)">%</text><path d="M18 64 Q60 92 102 64" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+						<div class="amz-timer" id="amzTimer" aria-label="شمارش معکوس">
+							<span class="box" data-unit="s">۵۷</span>
+							<span class="sep">:</span>
+							<span class="box" data-unit="m">۳۰</span>
+							<span class="sep">:</span>
+							<span class="box" data-unit="h">۱۴</span>
+						</div>
+						<a href="#" class="amz-view"><span>مشاهده همه</span><i class="bi bi-chevron-left"></i></a>
+					</div>
+				</article>
+			<article class="amz-card amz-card3">
+				<div class="amz-img"><img src="111.webp" alt="گوشی موبایل جی ال ایکس مدل F8 دو سیم کارت"></div>
+				<h3 class="amz-title">گوشی موبایل جی ال ایکس <br> مدل F8 دو سیم کارت</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۱,۲۱۹,۰۰۰</span></div>
+					<span class="amz-off">۱۲٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۱,۳۸۰,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="222.webp" alt="گوشی موبایل تی سی ال مدل 40 NxtPaper دو سیم کارت ظرفیت 256 گیگابایت و رم 8 گیگابایت"></div>
+				<h3 class="amz-title">گوشی موبایل تی سی ال <br> مدل 40 NxtPaper دو سیم کارت ظرفیت 256 گیگابایت و رم 8 گیگابایت</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۱۰,۷۹۹,۰۰۰</span></div>
+					<span class="amz-off">۱۱٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۱۲,۱۰۸,۷۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="333.webp" alt="گوشی موبایل آنر مدل X5b دو سیم‌کارت ظرفیت 64 گیگابایت و رم 4 گیگابایت - به همراه شارژر 35 وات آنر"></div>
+				<h3 class="amz-title">گوشی موبایل آنر مدل X5b <br> دو سیم‌کارت ظرفیت 64 گیگابایت و رم 4 گیگابایت - به همراه شارژر 35 وات آنر</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۶,۵۹۹,۰۰۰</span></div>
+					<span class="amz-off">۸٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۷,۲۰۰,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="444.webp" alt="گوشی موبایل جی ال ایکس مدل C66 دو سیم کارت ظرفیت 16 مگابایت"></div>
+				<h3 class="amz-title">گوشی موبایل جی ال ایکس <br> مدل C66 دو سیم کارت ظرفیت 16 مگابایت</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۱,۰۹۹,۰۰۰</span></div>
+					<span class="amz-off">۸٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۱,۱۹۹,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="555.webp" alt="هدست بلوتوثی انکر مدل Soundcore Q11i"></div>
+				<h3 class="amz-title">هدست بلوتوثی انکر مدل <br> Soundcore Q11i</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۲,۰۹۰,۰۰۰</span></div>
+					<span class="amz-off">۲۱٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۲,۶۳۰,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="666.webp" alt="هدفون بلوتوثی ریمکس مدل RB-S1"></div>
+				<h3 class="amz-title">هدفون بلوتوثی ریمکس مدل <br> RB-S1</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۶۴۹,۰۰۰</span></div>
+					<span class="amz-off">۱۹٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۷۹۹,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="777.webp" alt="هدست بی سیم اوی مدل A997BL"></div>
+				<h3 class="amz-title">هدست بی سیم اوی مدل <br> A997BL</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۱,۲۹۹,۰۰۰</span></div>
+					<span class="amz-off">۱۳٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۱,۴۹۵,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="888.webp" alt="لپ تاپ 15.6 اینچی ایسوس مدل Vivobook 15 X1502ZA-EJ1429-i7 12700H-16GB DDR4 3200MHz-512GB SSD-TFT - کاستوم شده"></div>
+				<h3 class="amz-title">لپ تاپ 15.6 اینچی ایسوس <br> مدل Vivobook 15 X1502ZA-EJ1429-i7 12700H-16GB DDR4 3200MHz-512GB SSD-TFT - کاستوم شده</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۵۰,۲۰۰,۰۰۰</span></div>
+					<span class="amz-off">۵٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۵۲,۷۹۹,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="1010.webp" alt="لپ تاپ 15.6 اینچی ام اس آی مدل Thin 15 B13UCX-i5 13420H-16GB DDR4-500GB SSD-RTX2050-FHD"></div>
+				<h3 class="amz-title">لپ تاپ 15.6 اینچی ام اس <br> آی مدل Thin 15 B13UCX-i5 13420H-16GB DDR4-500GB SSD-RTX2050-FHD</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۵۳,۸۹۹,۰۰۰</span></div>
+					<span class="amz-off">۴٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۵۵,۸۹۹,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="11111.webp" alt="درجه تنظیم باد لاستیک مدل inflator طرح کاور ژله ای"></div>
+				<h3 class="amz-title">درجه تنظیم باد لاستیک <br> مدل inflator طرح کاور ژله ای</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۱۲۵,۰۰۰</span></div>
+					<span class="amz-off">۲۲٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۱۶۱,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="1212.webp" alt="یخچال فریزر خودرو ایستکول مدل TM-4040-DC"></div>
+				<h3 class="amz-title">یخچال فریزر خودرو <br> ایستکول مدل TM-4040-DC</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۲۰,۹۹۹,۰۰۰</span></div>
+					<span class="amz-off">۱۶٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۲۴,۹۷۸,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card">
+				<div class="amz-img"><img src="1313.webp" alt="کیف دستی لیدوما مدل 652"></div>
+				<h3 class="amz-title">کیف دستی لیدوما مدل 652</h3>
+				<div class="amz-price-row">
+					<div class="amz-price"><span class="amz-currency">تومان</span><span class="amz-amount">۳۷۰,۰۰۰</span></div>
+					<span class="amz-off">۳۶٪</span>
+				</div>
+				<div class="amz-meta-row">
+					<span class="amz-old">۵۸۰,۰۰۰</span>
+				</div>
+			</article>
+			<article class="amz-card2">
+				<a href="#" class="amz-viewall-link" aria-label="مشاهده همه">
+					<span class="amz-viewall-circle"><i class="bi bi-arrow-left"></i></span>
+					<span class="amz-viewall-text">مشاهده همه</span>
+				</a>
+			</article>
+
+		<button class="amz-nav amz-prev" aria-label="قبلی"><i class="bi bi-chevron-right"></i></button>
+
+		
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const track = document.getElementById('amzTrack');
+		const prev = document.querySelector('.amz-prev');
+		const next = document.querySelector('.amz-next');
+		const cardWidth = 192; // card width + gap (180px + 12px)
+		
+		// RTL-aware helpers
+		const isRtl = getComputedStyle(track).direction === 'rtl';
+		const EPS = 1; // only hide at true ends
+		const getMaxScroll = () => track.scrollWidth - track.clientWidth;
+		const getNormalizedScrollLeft = () => {
+			const raw = track.scrollLeft;
+			const max = getMaxScroll();
+			if(!isRtl) return raw;
+			// Chrome/Safari/Edge (RTL): 0 at rightmost, negative to the left
+			if(raw <= 0) return -raw;
+			// Firefox (RTL): max at rightmost, 0 at leftmost
+			return max - raw;
+		};
+		
+		// Function to update button visibility
+		function updateButtonVisibility() {
+			const norm = getNormalizedScrollLeft();
+			const max = Math.max(0, getMaxScroll());
+			// Hide right arrow at rightmost; show it otherwise
+			prev.style.display = norm <= EPS ? 'none' : 'flex';
+			// Hide left arrow at leftmost; show it otherwise
+			next.style.display = norm >= max - EPS ? 'none' : 'flex';
+		}
+		
+		function scrollByCards(dir){
+			track.scrollBy({ left: dir * cardWidth * 3, behavior: 'smooth' });
+			// Update button visibility after scroll animation
+			setTimeout(updateButtonVisibility, 300);
+		}
+		
+		// Initialize scroll position to show rightmost products first (RTL-safe)
+		function initializeScroll() {
+			if (isRtl) {
+				// Try set to the rightmost across engines
+				track.scrollLeft = 0;
+				const max = getMaxScroll();
+				if (getNormalizedScrollLeft() > EPS) {
+					track.scrollLeft = max; // Firefox model
+					if (getNormalizedScrollLeft() > EPS) {
+						track.scrollLeft = -max; // Chromium/WebKit negative model
+					}
+				}
+			} else {
+				track.scrollLeft = 0;
+			}
+			updateButtonVisibility();
+		}
+		
+		prev.addEventListener('click', ()=> scrollByCards(1)); // scroll left (show more right products)
+		next.addEventListener('click', ()=> scrollByCards(-1)); // scroll right (show more left products)
+		
+		// Listen for scroll events to update button visibility
+		track.addEventListener('scroll', updateButtonVisibility);
+		window.addEventListener('resize', updateButtonVisibility);
+		
+		// Initialize the scroll position and button visibility
+		setTimeout(initializeScroll, 100);
+		
+		// countdown timer with Persian numbers
+		const timer = document.getElementById('amzTimer');
+		if(timer){
+			// Convert English digits to Persian
+			const toPersianDigits = (num) => {
+				const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+				return String(num).replace(/\d/g, d => persianDigits[d]);
+			};
+			
+			const end = Date.now() + 14 * 60 * 60 * 1000 + 30 * 60 * 1000 + 57 * 1000; // 14:30:57
+			const pad = n => toPersianDigits(String(n).padStart(2,'0'));
+			
+			const tick = () => {
+				const diff = Math.max(0, end - Date.now());
+				const h = Math.floor(diff/3600000);
+				const m = Math.floor((diff%3600000)/60000);
+				const s = Math.floor((diff%60000)/1000);
+				timer.querySelector('[data-unit="h"]').textContent = pad(h);
+				timer.querySelector('[data-unit="m"]').textContent = pad(m);
+				timer.querySelector('[data-unit="s"]').textContent = pad(s);
+			};
+			tick();
+			setInterval(tick, 1000);
+		}
+	});
+</script>
+
+	<div class="row">
+		<div class="cards-wrapper">
+			<div class="cards-row">
+				<div class="card g1">
+					<br>
+					<div class="card-img">
+						<img style="border-radius: 10px;" src="01.gif" alt="">
+					</div>
+				</div>
+				<div class="card g1">
+					<br>
+					<div class="card-img">
+						<img style="border-radius: 10px;" src="02.webp" alt="">
+					</div>
+				</div>
+				<div class="card g1">
+					<br>
+					<div class="card-img">
+						<img style="border-radius: 10px;" src="03.webp" alt="">
+					</div>
+				</div>
+				<div class="card g1">
+					<br>
+					<div class="card-img">
+						<img style="border-radius: 10px;" src="04.webp" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+	<!-- Supermarket Specials Strip -->
+	<div class="row">
+		<div class="col-12">
+			<div class="super-strip" dir="rtl">
+				<div class="super-inner">
+			<!-- left CTA button -->
+			<button class="smk-more-btn" aria-label="بیش از ۱۰۰ کالا">
+				<span style="font-size: 13px;">بیش از ۱۰۰ کالا</span>
+				<i style="font-size: 15px;font-family: bold;" class="bi bi-arrow-left"></i>
+			</button>
+
+			<!-- scrollable round products -->
+			<div class="smk-track">
+				<div class="smk-item"><img src="1m.webp" alt=""/><span class="smk-off">۷۰٪</span></div>
+				<div class="smk-item"><img src="2m.webp" alt=""/><span class="smk-off">۴۰٪</span></div>
+				<div class="smk-item"><img src="3m.webp" alt=""/><span class="smk-off">۴۰٪</span></div>
+				<div class="smk-item"><img src="4m.webp" alt=""/><span class="smk-off">۴۰٪</span></div>
+				<div class="smk-item"><img src="5m.webp" alt=""/><span class="smk-off">۴۰٪</span></div>
+				<div class="smk-item"><img src="6m.webp" alt=""/><span class="smk-off">۴۰٪</span></div>
+			</div>
+
+			<!-- right aside with title image + basket icon and green deal pill -->
+			<aside class="smk-aside" aria-hidden="true">
+				<div class="smk-aside-inner">
+					<img class="smk-cart-img" src="sabad.webp" alt="سبد خرید"/>
+					<img style="width: 45%;" class="smk-title-img" src="shegeft.svg" alt="شگفت‌انگیز سوپرمارکتی"/>
+					<span class="smk-deal-pill">تا ۷۰٪ تخفیف</span>
+				</div>
+			</aside>
+		</div>
+	</div>
+</div>
+
+	<div class="cards-wrapper">
+		<div class="cards-row">
+			<div class="card g1">
+				<div class="card-img">
+					<img style="border-radius: 10px;" src="05.webp" alt="">
+				</div>
+			</div>
+			<div class="card g1">
+				<div class="card-img">
+					<img style="border-radius: 10px;" src="06.webp" alt="">
+				</div>
+			</div>
+			<div class="card g1">
+				<div class="card-img">
+					<img style="border-radius: 10px;" src="07.gif" alt="">
+				</div>
+			</div>
+			<div class="card g1">
+				<div class="card-img">
+					<img style="border-radius: 10px;" src="08.webp" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="row-amz">
+	<div class="container">
+		<div id="k1" class="col-md-4">
+			<p>خرید بر اساس دسته‌بندی</p>
+		</div>
+	</div>
+</div>
+	<div class="dk-category" dir="rtl">
+	<div class="dk-category-inner">
+		<button class="cat-nav cat-prev" aria-label="قبلی"><i class="bi bi-chevron-right"></i></button>
+		<div class="cat-track" id="catTrack">
+			<div class="smk-track-b">
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q1.jpg" alt=""></div>
+					<div class="cat-label">موبایل</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q2.jpg" alt=""></div>
+					<div class="cat-label">لوازم تحریر</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q3.jpg" alt=""></div>
+					<div class="cat-label">لپ تاپ</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q4.jpg" alt=""></div>
+					<div class="cat-label">کالای دیجیتال</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q5.jpg" alt=""></div>
+					<div class="cat-label">خانه و آشپزخانه</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q6.jpg" alt=""></div>
+					<div class="cat-label">لوازم خانگی برقی</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q7.jpg" alt=""></div>
+					<div class="cat-label">آرایشی و بهداشتی</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q8.jpg" alt=""></div>
+					<div class="cat-label">مد و پوشاک</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q9.jpg" alt=""></div>
+					<div class="cat-label">خودرو و موتورسیکلت</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q10.jpg" alt=""></div>
+					<div class="cat-label">ابزارآلات و تجهیزات</div>
+				</div>
+			</div>
+			<div class="smk-track-b">
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q11.jpg" alt=""></div>
+					<div class="cat-label">طلا و نقره</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q12.jpg" alt=""></div>
+					<div class="cat-label">تجهیزات پزشکی و سلامت</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q13.jpg" alt=""></div>
+					<div class="cat-label">کتاب و هنر</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q14.jpg" alt=""></div>
+					<div class="cat-label">ورزش و سفر</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q15.jpg" alt=""></div>
+					<div class="cat-label">کارت هدیه و گیفت کارت</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q16.jpg" alt=""></div>
+					<div class="cat-label">سوپر مارکت آنلاین</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q17.jpg" alt=""></div>
+					<div class="cat-label">اسباب بازی، کودک و نوزاد</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q18.jpg" alt=""></div>
+					<div class="cat-label">محصولات بومی و محلی</div>
+				</div>
+				<div class="cat-item">
+					<div class="smk-item1"><img src="q19.jpg" alt=""></div>
+					<div class="cat-label">پت شاپ</div>
+				</div>
+			</div>
+		</div>
+		<button class="cat-nav cat-next" aria-label="بعدی"><i class="bi bi-chevron-left"></i></button>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const catTrack = document.getElementById('catTrack');
+		const catPrev = document.querySelector('.cat-prev');
+		const catNext = document.querySelector('.cat-next');
+		const cardWidth = 140; // item width + gap (100px + 40px gap)
+		
+		// RTL-aware helpers
+		const isRtl = getComputedStyle(catTrack).direction === 'rtl';
+		const EPS = 1; // only hide at true ends
+		const getMaxScroll = () => catTrack.scrollWidth - catTrack.clientWidth;
+		const getNormalizedScrollLeft = () => {
+			const raw = catTrack.scrollLeft;
+			const max = getMaxScroll();
+			if(!isRtl) return raw;
+			// Chrome/Safari/Edge (RTL): 0 at rightmost, negative to the left
+			if(raw <= 0) return -raw;
+			// Firefox (RTL): max at rightmost, 0 at leftmost
+			return max - raw;
+		};
+		
+		// Function to update button visibility
+		function updateCatButtonVisibility() {
+			const norm = getNormalizedScrollLeft();
+			const max = Math.max(0, getMaxScroll());
+			// Hide right arrow at rightmost; show it otherwise
+			catPrev.style.display = norm <= EPS ? 'none' : 'flex';
+			// Hide left arrow at leftmost; show it otherwise
+			catNext.style.display = norm >= max - EPS ? 'none' : 'flex';
+		}
+		
+		function scrollCatByCards(dir){
+			catTrack.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+			// Update button visibility after scroll animation
+			setTimeout(updateCatButtonVisibility, 300);
+		}
+		
+		// Initialize scroll position to show rightmost products first (RTL-safe)
+		function initializeCatScroll() {
+			if (isRtl) {
+				// Try set to the rightmost across engines
+				catTrack.scrollLeft = 0;
+				const max = getMaxScroll();
+				if (getNormalizedScrollLeft() > EPS) {
+					catTrack.scrollLeft = max; // Firefox model
+					if (getNormalizedScrollLeft() > EPS) {
+						catTrack.scrollLeft = -max; // Chromium/WebKit negative model
+					}
+				}
+			} else {
+				catTrack.scrollLeft = 0;
+			}
+			updateCatButtonVisibility();
+		}
+		
+		catPrev.addEventListener('click', ()=> scrollCatByCards(1)); // scroll left (show more right products)
+		catNext.addEventListener('click', ()=> scrollCatByCards(-1)); // scroll right (show more left products)
+		
+		// Listen for scroll events to update button visibility
+		catTrack.addEventListener('scroll', updateCatButtonVisibility);
+		window.addEventListener('resize', updateCatButtonVisibility);
+		
+		// Initialize the scroll position and button visibility
+		setTimeout(initializeCatScroll, 100);
+	});
+</script>
+
+<div class="container-fluid px-0">
+	<div class="row g-3">
+		<div class="col-md-6">
+			<div style="border: none;" class="card g1">
+				<img style="border-radius: 10px; width: 98%; height: auto; margin-right: 16px;" src="c1.webp" alt="">
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div style="border: none;" class="card g1">
+				<img style="border-radius: 10px; width: 99%; height: auto; margin-left: 16px;" src="c2.webp" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Popular Brands Section -->
+<div class="brands-card-container">
+	<div class="brands-card">
+		<div class="brands-header">
+			<h1 class="brands-title">
+				<i class="bi bi-star-fill" style="color: #ffc107; margin-right: 8px;"></i>
+				محبوب ترین برندها
+			</h1>
+		</div>
+		
+		<div class="dk-brands" dir="rtl">
+			<div class="dk-brands-inner">
+				<button class="brand-nav brand-next" aria-label="بعدی"><i class="bi bi-chevron-left"></i></button>
+				<div class="brand-track" id="brandTrack">
+					<div class="brand-item">
+						<img src="b1.png" alt="Huawei" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b2.png" alt="neterbit" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b3.jpg" alt="پمینا" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b4.png" alt="X-VISION" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b5.png" alt="Panter" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b6.jpg" alt="چینی زرین ایران" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b7.jpg" alt="ADATA" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b8.png" alt="چرم مشهد" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b9.png" alt="پرسیل" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b10.png" alt="پریل" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b11.jpg" alt="برند 11" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b12.png" alt="برند 12" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b13.jpg" alt="neterbit" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b14.png" alt="پمینا" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b15.png" alt="X-VISION" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b16.png" alt="Panter" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b17.png" alt="چینی زرین ایران" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b18.jpg" alt="ADATA" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b19.png" alt="چرم مشهد" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b20.jpg" alt="پرسیل" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b21.png" alt="پریل" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b22.jpg" alt="برند 11" class="brand-logo">
+					</div>
+					<div class="brand-item">
+						<img src="b23.jpg" alt="برند 12" class="brand-logo">
+					</div>
+				</div>
+				<button class="brand-nav brand-prev" aria-label="قبلی"><i class="bi bi-chevron-right"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const brandTrack = document.getElementById('brandTrack');
+		const brandPrev = document.querySelector('.brand-prev');
+		const brandNext = document.querySelector('.brand-next');
+		const cardWidth = 140; // item width + gap (140px + 0px gap)
+		
+		// RTL-aware helpers
+		const isRtl = getComputedStyle(brandTrack).direction === 'rtl';
+		const EPS = 1; // only hide at true ends
+		const getMaxScroll = () => brandTrack.scrollWidth - brandTrack.clientWidth;
+		const getNormalizedScrollLeft = () => {
+			const raw = brandTrack.scrollLeft;
+			const max = getMaxScroll();
+			if(!isRtl) return raw;
+			// Chrome/Safari/Edge (RTL): 0 at rightmost, negative to the left
+			if(raw <= 0) return -raw;
+			// Firefox (RTL): max at rightmost, 0 at leftmost
+			return max - raw;
+		};
+		
+		// Function to update button visibility
+		function updateBrandButtonVisibility() {
+			const norm = getNormalizedScrollLeft();
+			const max = Math.max(0, getMaxScroll());
+			// Hide right arrow at rightmost; show it otherwise
+			brandPrev.style.display = norm <= EPS ? 'none' : 'flex';
+			// Hide left arrow at leftmost; show it otherwise
+			brandNext.style.display = norm >= max - EPS ? 'none' : 'flex';
+		}
+		
+		function scrollBrandByCards(dir){
+			brandTrack.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+			// Update button visibility after scroll animation
+			setTimeout(updateBrandButtonVisibility, 300);
+		}
+		
+		// Initialize scroll position to show rightmost brands first (RTL-safe)
+		function initializeBrandScroll() {
+			if (isRtl) {
+				// Try set to the rightmost across engines
+				brandTrack.scrollLeft = 0;
+				const max = getMaxScroll();
+				if (getNormalizedScrollLeft() > EPS) {
+					brandTrack.scrollLeft = max; // Firefox model
+					if (getNormalizedScrollLeft() > EPS) {
+						brandTrack.scrollLeft = -max; // Chromium/WebKit negative model
+					}
+				}
+			} else {
+				brandTrack.scrollLeft = 0;
+			}
+			updateBrandButtonVisibility();
+		}
+		
+		brandPrev.addEventListener('click', ()=> scrollBrandByCards(1)); // scroll left (show more right brands)
+		brandNext.addEventListener('click', ()=> scrollBrandByCards(-1)); // scroll right (show more left brands)
+		
+		// Listen for scroll events to update button visibility
+		brandTrack.addEventListener('scroll', updateBrandButtonVisibility);
+		window.addEventListener('resize', updateBrandButtonVisibility);
+		
+		// Initialize the scroll position and button visibility
+		setTimeout(initializeBrandScroll, 100);
+	});
+</script>
+
+<div class="container-fluid px-0">
+	<div class="row g-3">
+		<div class="col-md-6">
+			<div style="border: none;" class="card g1">
+				<img style="border-radius: 10px; width: 98%; height: auto; margin-right: 16px;" src="002.webp" alt="">
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div style="border: none;" class="card g1">
+				<img style="border-radius: 10px; width: 99%; height: auto; margin-left: 16px;" src="001.gif" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="main-card">
+		<div class="row g-0">
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">کیف و کاور گوشی</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g1.jpg" class="img-fluid" alt="کیف 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g2.jpg" class="img-fluid" alt="کیف 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g3.jpg" class="img-fluid" alt="کیف 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g4.jpg" class="img-fluid" alt="کیف 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 2: گوشی موبایل -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">گوشی موبایل</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g5.jpg" class="img-fluid" alt="گوشی 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g6.jpg" class="img-fluid" alt="گوشی 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g7.jpg" class="img-fluid" alt="گوشی 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g8.jpg" class="img-fluid" alt="گوشی 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 3: هدفون، هدست و هندزفری -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">هدفون، هدست و هندزفری</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g9.jpg" class="img-fluid" alt="هدفون 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g10.jpg" class="img-fluid" alt="هدفون 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g11.jpg" class="img-fluid" alt="هدفون 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g12.jpg" class="img-fluid" alt="هدفون 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 4: کیف و کوله مدرسه -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">کیف و کوله مدرسه</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g13.jpg" class="img-fluid" alt="کاور 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g14.jpg" class="img-fluid" alt="کاور 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g15.jpg" class="img-fluid" alt="کاور 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="g16.jpg" class="img-fluid" alt="کاور 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Most Sold Products Section -->
+<div class="most-sold-container">
+	<div class="most-sold-card">
+		<div class="most-sold-header">
+			<div class="most-sold-title">
+				<i class="bi bi-fire" style="color: #f97316; margin-left: 8px;"></i>
+				پرفروش ترین کالاها
+			</div>
+			<div class="most-sold-view-all">
+				<a href="#" class="view-all-link">مشاهده همه</a>
+			</div>
+		</div>
+		
+		<div class="most-sold-content">
+			<button class="most-sold-nav most-sold-prev" aria-label="قبلی">
+				<i class="bi bi-chevron-right"></i>
+			</button>
+			
+			<div class="most-sold-track" id="mostSoldTrack" dir="rtl">
+				<!-- Row 1 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">رب گوجه فرنگی روژین مقدار 800 گرم</div>
+							<div class="product-image">
+								<img src="k1.webp" alt="محصول 1">
+							</div>
+						</div>
+						<div class="product-rank">1</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">روغن آفتابگردان حاوی توکوفرول غنچه پلاس - 900 میلی لیتر</div>
+							<div class="product-image">
+								<img src="k4.webp" alt="محصول 4">
+							</div>
+						</div>
+						<div class="product-rank">4</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">گوشی شیائومی Redmi Note 14 4G دو سیم‌کارت ظرفیت ...</div>
+							<div class="product-image">
+								<img src="k7.webp" alt="محصول 7">
+							</div>
+						</div>
+						<div class="product-rank">7</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">مایع ظرفشویی پریل مدل لوندر وزن 1000 گرم</div>
+							<div class="product-image">
+								<img src="k10.webp" alt="محصول 10">
+							</div>
+						</div>
+						<div class="product-rank">10</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">شكر سفيد الماس دانه - 1 کیلوگرم</div>
+							<div class="product-image">
+								<img src="k13.webp" alt="محصول 13">
+							</div>
+						</div>
+						<div class="product-rank">13</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">مایع لباسشویی پرسیل مدل یونیورسال وزن 2.7 کیلوگرم</div>
+							<div class="product-image">
+								<img src="k16.webp" alt="محصول 16">
+							</div>
+						</div>
+						<div class="product-rank">16</div>
+					</div>
+				</div>
+				
+				<!-- Row 2 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">پودر ماشینی پرسیل Deep Clean مدل یونیورسال وزن 500 گرم</div>
+							<div class="product-image">
+								<img src="k2.webp" alt="محصول 2">
+							</div>
+						</div>
+						<div class="product-rank">2</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">نوشابه کولا پیسی - 1.5 لیتر</div>
+							<div class="product-image">
+								<img src="k5.webp" alt="محصول 5">
+							</div>
+						</div>
+						<div class="product-rank">5</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">مایع ظرفشویی پریل مدل لیمویی وزن 3750 گرم</div>
+							<div class="product-image">
+								<img src="k8.webp" alt="محصول 8">
+							</div>
+						</div>
+						<div class="product-rank">8</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">شامپو پرژک مدل زيتون حجم 450 میلی لیتر</div>
+							<div class="product-image">
+								<img src="k11.webp" alt="محصول 11">
+							</div>
+						</div>
+						<div class="product-rank">11</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">پنیر فتا دوشه هراز - 400 گرم</div>
+							<div class="product-image">
+								<img src="k14.webp" alt="محصول 14">
+							</div>
+						</div>
+						<div class="product-rank">14</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">خمیر دندان ضد پوسیدگی سیگنال مدل Original حجم 100 میلی لیتر</div>
+							<div class="product-image">
+								<img src="k17.webp" alt="محصول 17">
+							</div>
+						</div>
+						<div class="product-rank">17</div>
+					</div>
+				</div>
+				
+				<!-- Row 3 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کنسرو تون ماهی در روغن گیاهی محفل 180 گرم</div>
+							<div class="product-image">
+								<img src="k3.webp" alt="محصول 3">
+							</div>
+						</div>
+						<div class="product-rank">3</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کره کاله - 50 گرم</div>
+							<div class="product-image">
+								<img src="k6.webp" alt="محصول 6">
+							</div>
+						</div>
+						<div class="product-rank">6</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">قرص جوشان ویتامین ث 1000 میلی گرمی بسته 20 عددی</div>
+							<div class="product-image">
+								<img src="k9.webp" alt="محصول 9">
+							</div>
+						</div>
+						<div class="product-rank">9</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">روغن سرخ کردنی غنچه - 15 لیتر</div>
+							<div class="product-image">
+								<img src="k12.webp" alt="محصول 12">
+							</div>
+						</div>
+						<div class="product-rank">12</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">قرص کلاژن یوروویتال 1000 میلی گرم بسته 30 عددی</div>
+							<div class="product-image">
+								<img src="k15.webp" alt="محصول 15">
+							</div>
+						</div>
+						<div class="product-rank">15</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">پودر لباسشویی دستی گلرنگ - 500 گرم</div>
+							<div class="product-image">
+								<img src="k18.webp" alt="محصول 18">
+							</div>
+						</div>
+						<div class="product-rank">18</div>
+					</div>
+				</div>
+			</div>
+			
+			<button class="most-sold-nav most-sold-next" aria-label="بعدی">
+				<i class="bi bi-chevron-left"></i>
+			</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const track = document.getElementById('mostSoldTrack');
+		const prev = document.querySelector('#mostSoldTrack').closest('.most-sold-container').querySelector('.most-sold-prev');
+		const next = document.querySelector('#mostSoldTrack').closest('.most-sold-container').querySelector('.most-sold-next');
+		const itemWidth = 320; // width of each product item including gap
+		
+		// RTL-aware helpers
+		const isRtl = getComputedStyle(track).direction === 'rtl';
+		const EPS = 1; // only hide at true ends
+		const getMaxScroll = () => track.scrollWidth - track.clientWidth;
+		const getNormalizedScrollLeft = () => {
+			const raw = track.scrollLeft;
+			const max = getMaxScroll();
+			if(!isRtl) return raw;
+			// Chrome/Safari/Edge (RTL): 0 at rightmost, negative to the left
+			if(raw <= 0) return -raw;
+			// Firefox (RTL): max at rightmost, 0 at leftmost
+			return max - raw;
+		};
+		
+		// Function to update button visibility
+		function updateButtonVisibility() {
+			const norm = getNormalizedScrollLeft();
+			const max = Math.max(0, getMaxScroll());
+			// Hide right arrow at rightmost; show it otherwise
+			prev.style.display = norm <= EPS ? 'none' : 'flex';
+			// Hide left arrow at leftmost; show it otherwise
+			next.style.display = norm >= max - EPS ? 'none' : 'flex';
+		}
+		
+		function scrollByItems(dir){
+			track.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
+			// Update button visibility after scroll animation
+			setTimeout(updateButtonVisibility, 300);
+		}
+		
+		// Initialize scroll position to show rightmost products first (RTL-safe)
+		function initializeScroll() {
+			if (isRtl) {
+				// Try set to the rightmost across engines
+				track.scrollLeft = 0;
+				const max = getMaxScroll();
+				if (getNormalizedScrollLeft() > EPS) {
+					track.scrollLeft = max; // Firefox model
+					if (getNormalizedScrollLeft() > EPS) {
+						track.scrollLeft = -max; // Chromium/WebKit negative model
+					}
+				}
+			} else {
+				track.scrollLeft = 0;
+			}
+			updateButtonVisibility();
+		}
+		
+		prev.addEventListener('click', ()=> scrollByItems(1)); // scroll left (show more right products)
+		next.addEventListener('click', ()=> scrollByItems(-1)); // scroll right (show more left products)
+		
+		// Listen for scroll events to update button visibility
+		track.addEventListener('scroll', updateButtonVisibility);
+		window.addEventListener('resize', updateButtonVisibility);
+		
+		// Initialize the scroll position and button visibility
+		setTimeout(initializeScroll, 100);
+
+		// Convert product ranks to Persian digits
+		const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+		const toPersianDigits = (value) => String(value).replace(/\d/g, d => persianDigits[d]);
+		track.querySelectorAll('.product-rank').forEach(el => {
+			el.textContent = toPersianDigits(el.textContent);
+		});
+
+	});
+</script>
+
+<div class="container">
+	<div class="main-card">
+		<div class="row g-0">
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">ساعت عقربه ای مردانه</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j1.jpg" class="img-fluid" alt="کیف 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j2.jpg" class="img-fluid" alt="کیف 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j3.jpg" class="img-fluid" alt="کیف 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j4.jpg" class="img-fluid" alt="کیف 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 2: گوشی موبایل -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">لپ تاپ و الترابوک</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j5.jpg" class="img-fluid" alt="گوشی 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j6.jpg" class="img-fluid" alt="گوشی 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j7.jpg" class="img-fluid" alt="گوشی 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j8.jpg" class="img-fluid" alt="گوشی 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 3: هدفون، هدست و هندزفری -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">جوراب مردانه</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j9.jpg" class="img-fluid" alt="هدفون 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j10.jpg" class="img-fluid" alt="هدفون 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j11.jpg" class="img-fluid" alt="هدفون 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j12.jpg" class="img-fluid" alt="هدفون 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Section 4: کیف و کوله مدرسه -->
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+				<div class="product-section">
+					<h5 class="section-title">دفتر</h5>
+					<p class="section-subtitle">بر اساس سلیقه شما</p>
+					<div class="image-grid">
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j13.jpg" class="img-fluid" alt="کاور 1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j14.jpg" class="img-fluid" alt="کاور 2">
+								</div>
+							</div>
+						</div>
+						<!-- Horizontal divider between image rows -->
+						<div class="row-divider"></div>
+						<!-- Vertical divider between image columns -->
+						<div class="col-divider"></div>
+						<div class="row g-0">
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j15.jpg" class="img-fluid" alt="کاور 3">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="img-container">
+									<img src="j16.jpg" class="img-fluid" alt="کاور 4">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-footer">
+						<a href="#" class="btn btn-link">مشاهده ></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<img style="width: 100%; border-radius: 15px; margin-top: 15px; margin-right: 4px;" src="aaa.webp" alt="">
+</div>
+
+<div class="container py-4">
+    <div class="big-card mx-auto shadow-sm">
+      <h5 style="text-align: center; margin-bottom: 32px;">منتخب محصولات تخفیف و حراج</h5>
+      <div class="row g-0 product-grid">
+        <!-- محصول 1 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">88%</span>
+              <img src="m1.webp" alt="محصول ۱">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۹6,۰۰۰</span>
+                <span class="old-price">800,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 2 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">86%</span>
+              <img src="m2.webp" alt="محصول ۲">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان 195,000</span>
+                <span class="old-price">۱,۴2۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 3 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">80%</span>
+              <img src="m3.webp" alt="محصول ۳">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان 170,000</span>
+                <span class="old-price">850,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 4 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">80%</span>
+              <img src="m4.webp" alt="محصول ۴">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان 998,۰۰۰</span>
+                <span class="old-price">4,99۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 5 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">36%</span>
+              <img src="m5.webp" alt="محصول ۵">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان 1,375,۰۰۰</span>
+                <span class="old-price">2,149,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 6 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">35%</span>
+              <img src="m6.webp" alt="محصول ۶">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان 1,000,۰۰۰</span>
+                <span class="old-price">1,۵39,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 7 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">35%</span>
+              <img src="m7.webp" alt="محصول ۷">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۱۶۰,۰۰۰</span>
+                <span class="old-price">۲۳۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 8 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">34%</span>
+              <img src="m8.webp" alt="محصول ۸">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۶۵,۰۰۰</span>
+                <span class="old-price">۷۴,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 9 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">89%</span>
+              <img src="m9.webp" alt="محصول ۹">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۴۲۰,۰۰۰</span>
+                <span class="old-price">۵۸۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 10 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">85%</span>
+              <img src="m10.webp" alt="محصول ۱۰">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۱۷۰,۰۰۰</span>
+                <span class="old-price">۱۸۹,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 11 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">84%</span>
+              <img src="m11.webp" alt="محصول ۱۱">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۱,۰۴۰,۰۰۰</span>
+                <span class="old-price">۱,۲۹۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 12 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">80%</span>
+              <img src="m12.webp" alt="محصول ۱۲">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۵۴۰,۰۰۰</span>
+                <span class="old-price">۶۴۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 13 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">72%</span>
+              <img src="m13.webp" alt="محصول ۱۳">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۳۲۰,۰۰۰</span>
+                <span class="old-price">۳۷۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 14 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">66%</span>
+              <img src="m14.webp" alt="محصول ۱۴">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۴۳۳,۰۰۰</span>
+                <span class="old-price">۵۷۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 15 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">72%</span>
+              <img src="m15.webp" alt="محصول ۱۵">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۲۶۰,۰۰۰</span>
+                <span class="old-price">۳۲۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 16 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">72%</span>
+              <img src="m16.webp" alt="محصول ۱۶">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۸۵,۰۰۰</span>
+                <span class="old-price">۹۶,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 17 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">64%</span>
+              <img src="m17.webp" alt="محصول ۱۷">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۴۱۱,۰۰۰</span>
+                <span class="old-price">۴۹۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- محصول 18 -->
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="tile h-100">
+            <div class="image-wrap">
+              <span class="discount-badge badge bg-danger">60%</span>
+              <img src="m18.webp" alt="محصول ۱۸">
+            </div>
+            <div class="tile-body">
+              <div class="price-block">
+                <span class="discount-price">تومان ۱,۲۰۰,۰۰۰</span>
+                <span class="old-price">۱,۶۸۰,۰۰۰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+		</div>
+		</div>
+		</div>
+
+		<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			const toPersianDigits = (value) => {
+				const map = {'0':'۰','1':'۱','2':'۲','3':'۳','4':'۴','5':'۵','6':'۶','7':'۷','8':'۸','9':'۹'};
+				return String(value).replace(/[0-9]/g, d => map[d]);
+			};
+			const selectors = [
+				'.product-grid .discount-price',
+				'.product-grid .old-price',
+				'.product-grid .discount-badge'
+			];
+			selectors.forEach(sel => {
+				document.querySelectorAll(sel).forEach(el => {
+					el.textContent = toPersianDigits(el.textContent);
+				});
+			});
+		});
+		</script>
+
+<div class="most-sold-container">
+	<div style="margin-left: 115px; margin-right: 107px;" class="most-sold-card">
+		<div class="most-sold-header">
+			<div class="most-sold-title">
+				<i class="bi bi-fire" style="color: #f97316; margin-left: 8px;"></i>
+				داغ ترین چند ساعت گذشته
+			</div>
+			<div class="most-sold-view-all">
+				<a href="#" class="view-all-link">مشاهده همه</a>
+			</div>
+		</div>
+		
+		<div class="most-sold-content">
+			<button class="most-sold-nav most-sold-prev" aria-label="قبلی">
+				<i class="bi bi-chevron-right"></i>
+			</button>
+			
+			<div class="most-sold-track" id="mostSoldTrack2" dir="rtl">
+				<!-- Row 1 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کفش زنانه مدل خاصا کد 144172</div>
+							<div class="product-image">
+								<img src="d1.webp" alt="محصول 1">
+							</div>
+						</div>
+						<div class="product-rank">1</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">ادو پرفيوم مردانه لالیکو مدل مگاماره با رایحه تند حجم 50 میلی لیتر</div>
+							<div class="product-image">
+								<img src="d4.webp" alt="محصول 4">
+							</div>
+						</div>
+						<div class="product-rank">4</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کاغذ A4 سل پرینت کد 01 بسته 5 عددی</div>
+							<div class="product-image">
+								<img src="d7.webp" alt="محصول 7">
+							</div>
+						</div>
+						<div class="product-rank">7</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کفش زنانه مدل ورسین کد 146943 Shift</div>
+							<div class="product-image">
+								<img src="d10.webp" alt="محصول 10">
+							</div>
+						</div>
+						<div class="product-rank">10</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">شلوار جین زنانه ایزی دو مدل 628 رنگ مشکی</div>
+							<div class="product-image">
+								<img src="d13.webp" alt="محصول 13">
+							</div>
+						</div>
+						<div class="product-rank">13</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">ماسک دست سادور مدل هلو و عسل وزن 35 گرم</div>
+							<div class="product-image">
+								<img src="d16.webp" alt="محصول 16">
+							</div>
+						</div>
+						<div class="product-rank">16</div>
+					</div>
+				</div>
+				
+				<!-- Row 2 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">شامپو مو سریتا مدل Fortifying مناسب برای موهای چرب حجم... 200</div>
+							<div class="product-image">
+								<img src="d2.webp" alt="محصول 2">
+							</div>
+						</div>
+						<div class="product-rank">2</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">طلا گرمی 18 عیار ماربر مدل پارسیان کد MB</div>
+							<div class="product-image">
+								<img src="d5.webp" alt="محصول 5">
+							</div>
+						</div>
+						<div class="product-rank">5</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">سکه گرمی 10 عیار پارسیان طلا و جواهر ويانا مدل 600</div>
+							<div class="product-image">
+								<img src="d8.webp" alt="محصول 8">
+							</div>
+						</div>
+						<div class="product-rank">8</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">آسیاب قهوه راف مدل R7111</div>
+							<div class="product-image">
+								<img src="d11.webp" alt="محصول 11">
+							</div>
+						</div>
+						<div class="product-rank">11</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">نردبان تلسکوپی دوطرفه 1.9 متری صنعتی اینتیمکث کد 100137</div>
+							<div class="product-image">
+								<img src="d14.webp" alt="محصول 14">
+							</div>
+						</div>
+						<div class="product-rank">14</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کنسرو ماهی تن فلفلی ساپریم200 گرم</div>
+							<div class="product-image">
+								<img src="d17.webp" alt="محصول 17">
+							</div>
+						</div>
+						<div class="product-rank">17</div>
+					</div>
+				</div>
+				
+				<!-- Row 3 -->
+				<div class="most-sold-row">
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">پشت کمری باراد مدل 151</div>
+							<div class="product-image">
+								<img src="d3.webp" alt="محصول 3">
+							</div>
+						</div>
+						<div class="product-rank">3</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">پاوربانک آیرنج مدل IR D251 ظرفیت 20000 میلی آمپر ساعت</div>
+							<div class="product-image">
+								<img src="d6.webp" alt="محصول 6">
+							</div>
+						</div>
+						<div class="product-rank">6</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">کیف کراس بادی دیکمپ عدل TRAVEL-058</div>
+							<div class="product-image">
+								<img src="d9.webp" alt="محصول 9">
+							</div>
+						</div>
+						<div class="product-rank">9</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">انگشتر طلا 18 عیار زنانه گالری طلای همرار مدل آوا سایز 54</div>
+							<div class="product-image">
+								<img src="d12.webp" alt="محصول 12">
+							</div>
+						</div>
+						<div class="product-rank">12</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">جعبه پذیرایی مدل نگاران کد 02</div>
+							<div class="product-image">
+								<img src="d15.webp" alt="محصول 15">
+							</div>
+						</div>
+						<div class="product-rank">15</div>
+					</div>
+					
+					<div class="most-sold-item">
+						<div class="product-info">
+							<div class="product-text">قرص جویدنی ویتامین ث 250 میلی گرم اسوه بسته 30 عددی</div>
+							<div class="product-image">
+								<img src="d18.webp" alt="محصول 18">
+							</div>
+						</div>
+						<div class="product-rank">18</div>
+					</div>
+				</div>
+			</div>
+			
+			<button class="most-sold-nav most-sold-next" aria-label="بعدی">
+				<i class="bi bi-chevron-left"></i>
+			</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Second Most Sold Products Section JavaScript
+	document.addEventListener('DOMContentLoaded', function(){
+		const track2 = document.getElementById('mostSoldTrack2');
+		const prev2 = document.querySelector('#mostSoldTrack2').closest('.most-sold-container').querySelector('.most-sold-prev');
+		const next2 = document.querySelector('#mostSoldTrack2').closest('.most-sold-container').querySelector('.most-sold-next');
+		const itemWidth2 = 320; // width of each product item including gap - already correct size
+		
+		// RTL-aware helpers
+		const isRtl2 = getComputedStyle(track2).direction === 'rtl';
+		const EPS2 = 1; // only hide at true ends
+		const getMaxScroll2 = () => track2.scrollWidth - track2.clientWidth;
+		const getNormalizedScrollLeft2 = () => {
+			const raw = track2.scrollLeft;
+			const max = getMaxScroll2();
+			if(!isRtl2) return raw;
+			// Chrome/Safari/Edge (RTL): 0 at rightmost, negative to the left
+			if(raw <= 0) return -raw;
+			// Firefox (RTL): max at rightmost, 0 at leftmost
+			return max - raw;
+		};
+		
+		// Function to update button visibility
+		function updateButtonVisibility2() {
+			const norm = getNormalizedScrollLeft2();
+			const max = Math.max(0, getMaxScroll2());
+			// Hide right arrow at rightmost; show it otherwise
+			prev2.style.display = norm <= EPS2 ? 'none' : 'flex';
+			// Hide left arrow at leftmost; show it otherwise
+			next2.style.display = norm >= max - EPS2 ? 'none' : 'flex';
+		}
+		
+		function scrollByItems2(dir){
+			track2.scrollBy({ left: dir * itemWidth2, behavior: 'smooth' });
+			// Update button visibility after scroll animation
+			setTimeout(updateButtonVisibility2, 300);
+		}
+		
+		// Initialize scroll position to show rightmost products first (RTL-safe)
+		function initializeScroll2() {
+			if (isRtl2) {
+				// Try set to the rightmost across engines
+				track2.scrollLeft = 0;
+				const max = getMaxScroll2();
+				if (getNormalizedScrollLeft2() > EPS2) {
+					track2.scrollLeft = max; // Firefox model
+					if (getNormalizedScrollLeft2() > EPS2) {
+						track2.scrollLeft = -max; // Chromium/WebKit negative model
+					}
+				}
+			} else {
+				track2.scrollLeft = 0;
+			}
+			updateButtonVisibility2();
+		}
+		
+		prev2.addEventListener('click', ()=> scrollByItems2(1)); // scroll left (show more right products)
+		next2.addEventListener('click', ()=> scrollByItems2(-1)); // scroll right (show more left products)
+		
+		// Listen for scroll events to update button visibility
+		track2.addEventListener('scroll', updateButtonVisibility2);
+		window.addEventListener('resize', updateButtonVisibility2);
+		
+		// Initialize the scroll position and button visibility
+		setTimeout(initializeScroll2, 100);
+
+		// Convert product ranks to Persian digits for second section
+		const persianDigits2 = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+		const toPersianDigits2 = (value) => String(value).replace(/\d/g, d => persianDigits2[d]);
+		track2.querySelectorAll('.product-rank').forEach(el => {
+			el.textContent = toPersianDigits2(el.textContent);
+		});
+
+	});
+</script>
+
+<!-- خواندنی ها Section -->
+<div class="container py-4">
+	<div class="readings-section">
+		<div class="readings-header">
+			<div class="readings-title">
+				<h3>خواندنی ها</h3>
+			</div>
+			<div class="readings-more">
+				<a href="#" class="readings-more-link">مطالب بیشتر در دیجی کالا مگ ></a>
+			</div>
+		</div>
+		
+		<div class="readings-cards">
+			<div class="readings-card">
+				<div class="readings-image">
+					<img src="kh1.webp" alt="پوشش سر؛ دخترانه ترین ترند ۲۰۲۵">
+				</div>
+				<div class="readings-content">
+					<h4>معجزه برای پریود شدن؛ تجربه واقعی و موثر خانم‌ها</h4>
+				</div>
+			</div>
+			
+			<div class="readings-card">
+				<div class="readings-image">
+					<img src="kh2.webp" alt="سایپا آریا؛ بررسی مشخصات فنی طراحی داخلی و قیمت">
+				</div>
+				<div class="readings-content">
+					<h4>نقدها و نمرات فیلم جی کلی؛ بحران میانسالی جرج کلونی</h4>
+					<p class="readings-subtitle">جشنواره ونیز (۲۰۲۵)</p>
+				</div>
+			</div>
+			
+			<div class="readings-card">
+				<div class="readings-image">
+					<img src="kh3.webp" alt="نقدها و نمرات فیلم جی کلی؛ بحران میانسالی جرج کلونی">
+				</div>
+				<div class="readings-content">
+					<h4>سایپا آریا؛ بررسی مشخصات فنی طراحی داخلی و قیمت</h4>
+					<p class="readings-subtitle">خودرو آریا</p>
+				</div>
+			</div>
+			
+			<div class="readings-card">
+				<div class="readings-image">
+					<img src="kh4.webp" alt="معجزه برای پریود شدن؛ تجربه واقعی و موثر خانم ها">
+				</div>
+				<div class="readings-content">
+					<h4>پوشش سر؛ دخترانه‌ترین ترند ۲۰۲۵</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- خط جداکننده بین محتوا و فوتر -->
+<div class="footer-separator"></div>
+
+<footer class="footer">
+	<!-- بخش بالایی فوتر -->
+	<div class="footer-top">
+		<!-- بخش لوگو و اطلاعات پشتیبانی -->
+		<div class="logo-section">
+			<div class="logo">
+				<img src="logo.svg" alt="دیجی‌کالا" width="190" height="40">
+			</div>
+			<div class="support-info">
+				<h4>تلفن پشتیبانی</h4>
+				<div class="phone-numbers">
+					<span>۶۱۹۳۰۰۰۰ - ۰۲۱</span>
+					<span class="separator">|</span>
+					<span>۰۲۱-۹۱۰۰۰۱۰۰</span>
+					<span class="separator">|</span>
+					<span>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</span>
+				</div>
+			</div>
+			<!-- دکمه بازگشت به بالا -->
+			<a href="#" class="back-to-top">
+				<i class="bi bi-chevron-up"></i>
+				بازگشت به بالا
+			</a>
+		</div>
+		
+		<!-- بخش گارانتی‌ها و خدمات -->
+		<div class="service-guarantees">
+			<div class="service-item">
+				<div class="service-icon">
+					<img src="a1.svg" alt="امکان تحویل اکسپرس">
+				</div>
+				<div class="service-text">امکان تحویل اکسپرس</div>
+			</div>
+			
+			<div class="service-item">
+				<div class="service-icon">
+					<img src="a2.svg" alt="امکان پرداخت در محل">
+				</div>
+				<div class="service-text">امکان پرداخت در محل</div>
+			</div>
+			
+			<div class="service-item">
+				<div class="service-icon">
+					<img src="a3.svg" alt="۷ روز هفته، ۲۴ ساعته">
+				</div>
+				<div class="service-text">۷ روز هفته، ۲۴ ساعته</div>
+			</div>
+			
+			<div class="service-item">
+				<div class="service-icon">
+					<img src="a4.svg" alt="هفت روز ضمانت بازگشت کالا">
+				</div>
+				<div class="service-text">هفت روز ضمانت بازگشت کالا</div>
+			</div>
+			
+			<div class="service-item">
+				<div class="service-icon">
+					<img src="a5.svg" alt="ضمانت اصل بودن کالا">
+				</div>
+				<div class="service-text">ضمانت اصل بودن کالا</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- بخش میانی فوتر -->
+	<div class="footer-middle">
+		<!-- ستون اول: با دیجی‌کالا -->
+		<div class="footer-column">
+			<h5>با دیجی‌کالا</h5>
+			<ul>
+				<li><a href="#">اتاق خبر دیجی‌کالا</a></li>
+				<li><a href="#">فروش در دیجی‌کالا</a></li>
+				<li><a href="#">فرصت‌های شغلی</a></li>
+				<li><a href="#">گزارش تخلف در دیجی‌کالا</a></li>
+				<li><a href="#">تماس با دیجی‌کالا</a></li>
+				<li><a href="#">درباره دیجی‌کالا</a></li>
+			</ul>
+		</div>
+		
+		<!-- ستون دوم: خدمات مشتریان -->
+		<div class="footer-column">
+			<h5>خدمات مشتریان</h5>
+			<ul>
+				<li><a href="#">پاسخ به پرسش‌های متداول</a></li>
+				<li><a href="#">رویه‌های بازگرداندن کالا</a></li>
+				<li><a href="#">شرایط استفاده</a></li>
+				<li><a href="#">حریم خصوصی</a></li>
+				<li><a href="#">گزارش باگ</a></li>
+			</ul>
+		</div>
+		
+		<!-- ستون سوم: راهنمای خرید -->
+		<div class="footer-column">
+			<h5>راهنمای خرید از دیجی‌کالا</h5>
+			<ul>
+				<li><a href="#">نحوه ثبت سفارش</a></li>
+				<li><a href="#">رویه ارسال سفارش</a></li>
+				<li><a href="#">شیوه‌های پرداخت</a></li>
+			</ul>
+		</div>
+		
+		<!-- ستون چهارم: همراه ما باشید و خبرنامه -->
+		<div class="footer-column">
+			<h5>همراه ما باشید!</h5>
+			<div class="social-icons">
+				<a href="#" class="social-icon">
+					<i class="bi bi-instagram"></i>
+				</a>
+				<a href="#" class="social-icon">
+					<i class="bi bi-twitter-x"></i>
+				</a>
+				<a href="#" class="social-icon">
+					<i class="bi bi-linkedin"></i>
+				</a>
+				<a href="#" class="social-icon">
+					<i class="bi bi-share"></i>
+				</a>
+			</div>
+			
+			<div class="newsletter-section">
+				<div class="newsletter-text">
+					با ثبت ایمیل، از جدیدترین تخفیف‌ها باخبر شوید
+				</div>
+				<form class="newsletter-form">
+					<input type="email" class="newsletter-input" placeholder="ایمیل شما">
+					<button type="submit" class="newsletter-btn">ثبت</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="app-download-bar">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <!-- بخش راست (شروع در حالت RTL) -->
+            <div class="d-flex align-items-center">
+                <button class="btn dropdown-btn d-flex align-items-center justify-content-center p-0">
+                    <img style="width: 100%;" src="footerlogo2 (1).webp" alt="">
+                </button>
+                <span class="bar-title me-3">دانلود اپلیکیشن دیجی‌کالا</span>
+            </div>
+
+            <!-- بخش چپ (پایان در حالت RTL) -->
+            <div class="d-flex align-items-center">
+                <!-- شما می‌توانید آدرس تصاویر خود را در ویژگی src تگ‌های img زیر جایگزین کنید -->
+                
+                <!-- لوگوی بازار -->
+                <a href="#" class="store-logo ms-2">
+                    <img style="height: 45px;border-radius: 10px;" src="coffe-bazzar.svg" alt="بازار">
+                </a>
+                
+                <!-- لوگوی مایکت -->
+                <a href="#" class="store-logo ms-2">
+                     <img style="border-radius: 10px; height: 45px;" src="myket.svg" alt="مایکت">
+                </a>
+                
+                <!-- لوگوی سیب اپ -->
+                <a href="#" class="store-logo ms-2">
+                     <img style="border-radius: 10px;" src="sib-app.svg" alt="سیب اپ">
+                </a>
+
+                <!-- آیکون کوچک سه نقطه -->
+                <div class="more-icon-container ms-2">
+                    <img src="More.svg" alt="">
+                </div>
+            </div>
+        </div>
+    	</div>	
+
+	<!-- بخش پایینی فوتر -->
+	<div class="footer-bottom">
+		<div class="footer-bottom-content">
+			<div class="footer-bottom-text">
+				<h3 class="footer-bottom-title">دیجی کالا؛ بزرگترین فروشگاه اینترنتی ایران</h3>
+				<div class="footer-bottom-description">
+					<p class="description-line">دیجی کالا سال‌ها است که به انتخاب اول بسیاری از خریداران اینترنتی تبدیل شده است. دیجی کالا به عنوان بزرگ‌ترین و معتبرترین فروشگاه آنلاین ایران، شناخته‌شده‌ترین فروشگاه نیز محسوب می‌شود.</p>
+					<p class="description-line">این فروشگاه آنلاین نه‌تنها گسترده‌ترین تنوع کالا را در دسته‌بندی‌های مختلف ارائه می‌دهد، بلکه با خدمات بی‌نظیر، ارسال سریع، ضمانت اصل بودن کالا و پشتیبانی حرفه‌ای، استاندارد جدیدی در خرید اینترنتی ایران تعریف کرده است.</p>
+					<p class="description-line-fade">این فروشگاه با سال‌ها تجربه و اعتماد مشتریان، کامل‌ترین و بهترین گزینه برای خرید آنلاین در ایران محسوب می‌شود.</p>
+				</div>
+				<div class="footer-bottom-action">
+					<a href="#" class="footer-more-btn">مشاهده بیشتر</a>
+				</div>
+			</div>
+			<div class="footer-bottom-images">
+				<div class="footer-image">
+					<img src="ff1.png" alt="تصویر 1">
+				</div>
+				<div class="footer-image">
+					<img src="ff2.png" alt="تصویر 2">
+				</div>
+				<div class="footer-image">
+					<img src="ff3.png" alt="تصویر 3">
+				</div>
+				<div class="footer-image">
+					<img src="ff4.png" alt="تصویر 4">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Ecosystem logos grid (replace placeholders with your images) -->
+	<div class="footer-legal-separator" style="border-top: 1px solid #e5e7eb; margin: 16px 0;"></div>
+	<p class="footer-legal-text" style="font-size: 12px; color: #6b7280; line-height: 1.8; margin: 0 16px 16px 16px; text-align: center;">
+		برای استفاده از مطالب دیجی‌کالا، داشتن «هدف غیرتجاری» و ذکر «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت نوآوران فن آوازه (فروشگاه آنلاین دیجی‌کالا) است.
+	</p>
+	<div class="dk-eco" dir="rtl">
+		<div class="dk-eco-grid">
+			<!-- Top row: 8 cells; second cell slightly larger -->
+			<div class="dk-eco-row eco-top">
+				<a class="eco-item" href="#"><img src="t1.svg" alt="t1" style="transform: scale(1.12);"></a>
+				<a class="eco-item" href="#"><img src="t2.svg" alt="t2" style="transform: scale(1.12);"></a>
+				<a class="eco-item" href="#"><img src="t3.svg" alt="t3" style="transform: scale(1.56);"></a>
+				<a class="eco-item" href="#"><img src="t4.svg" alt="t4" style="transform: scale(0.5);"></a>
+				<a class="eco-item" href="#"><img src="t5.svg" alt="t5" style="transform: scale(0.6);"></a>
+				<a class="eco-item" href="#"><img src="t6.svg" alt="t6" style="transform: scale(1.2);"></a>
+				<a class="eco-item" href="#"><img src="t7.svg" alt="t7" style="transform: scale(1.2);"></a>
+				<a class="eco-item" href="#"><img src="t8.svg" alt="t8"></a>
+			</div>
+			<!-- Bottom row: 6 cells; all uniformly larger -->
+			<div class="dk-eco-row eco-bottom">
+				<a class="eco-item" href="#"><img src="t9.svg" alt="t9" style="transform: scale(1.20);"></a>
+				<a class="eco-item" href="#"><img src="t10.svg" alt="t10" style="transform: scale(1.12);"></a>
+				<a class="eco-item" href="#"><img src="t11.svg" alt="t11" style="transform: scale(1.16);"></a>
+				<a class="eco-item" href="#"><img src="t12.svg" alt="t12" style="transform: scale(1.7);"></a>
+				<a class="eco-item" href="#"><img src="t13.svg" alt="t13" style="transform: scale(1.18);"></a>
+				<a class="eco-item" href="#"><img src="t14.svg" alt="t14" style="transform: scale(1.18);"></a>
+			</div>
+		</div>
+	</div>
+
+</footer>
+
+<!-- اسکریپت‌های بوت‌استرپ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- اسکریپت بازگشت به بالا -->
+<script>
+	// اسکرول به بالای صفحه
+	document.querySelector('.back-to-top').addEventListener('click', function(e) {
+		e.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+</script>
+
+</body>
+</html>
